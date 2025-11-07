@@ -1,5 +1,6 @@
 from qr_code_color import generate_qr_code
 from qr_code_with_logo import generate_qr_code_logo
+from PIL import ImageColor
 
 print()
 text = input("Enter The text ot URL to convert into QR Code: ")
@@ -7,11 +8,13 @@ filename = input("Enter the filename to save the qrcode: ")
 
 color = ' '
 
-while(True): #letting the use choose
-    color = input("Pick a color (red, blue, green, black, indigo, navy): ")
-    color = color.lower()
+#Get all colors supported by pillow
+valid_colors = ImageColor.colormap.keys()
 
-    if color!= "red" and color != "blue" and color != "green" and color != "black" and color != "indigo" and color != "navy" :
+while(True): #letting the use choose
+    color = input("Pick a color: ").lower()
+
+    if color not in valid_colors :
         print("Invalid Choice")
     else:
         break
