@@ -7,14 +7,15 @@ def generate_qr_code_logo(text, filename, color): #function to genrate qrcode
     qr = qrcode.QRCode (
         version=2,
         box_size=10,
-        border=2,
+        border=3,
         error_correction=qrcode.constants.ERROR_CORRECT_H
     )
 
     qr.add_data(text)
     qr.make(fit=True)
 
-    img = qr.make_image(fill_color=color, back_color='white')
+    img = qr.make_image(fill_color=color, back_color="white")
+
 
     logo_path = input("Please, provide the logo path: ")
     try:#if it can't fild the logo
@@ -38,9 +39,4 @@ def generate_qr_code_logo(text, filename, color): #function to genrate qrcode
    
     img.save(filename+".png")
 
-
-text = input("Enter The text ot URL to convert into QR Code: ")
-filename = input("Enter the filename to save the qrcode: ")
-
-color = 'black'
 

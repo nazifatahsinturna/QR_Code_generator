@@ -5,7 +5,7 @@ def generate_qr_code(text, filename, color): #function to genrate qrcode
     qr = qrcode.QRCode (
         version=1,
         box_size=10,
-        border=2
+        border=3
     )
 
     qr.add_data(text)
